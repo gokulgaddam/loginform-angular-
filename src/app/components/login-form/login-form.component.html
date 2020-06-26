@@ -1,0 +1,103 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+            <mat-card class="card mt-5 text-center">
+                <mat-card-title class="mt-5">Sign UP</mat-card-title>
+            <mat-card-content class="">
+                <form [formGroup]="loginForm" (submit)="onSubmit()">
+                    <mat-form-field>
+                        <mat-label>
+                            First Name:
+                        </mat-label>
+                            <input matInput name="fname" formControlName="fname" CtrlName  />
+                          
+                     </mat-form-field><br />
+                     <mat-label>
+                        <div *ngIf ="fname.invalid && (fname.dirty || fname.touched)" class="text-danger">
+                            <div *ngIf="fname.errors.required">
+                                First Name is required
+                            </div>
+                            <div *ngIf="fname.errors.minlength">
+                                First Name should contain minimum 4 characters
+                            </div>
+                            <div *ngIf="fname.errors.pattern">
+                                name should consists of only letters
+                            </div>
+                        </div>
+                     </mat-label>
+                     
+                   
+                   <mat-form-field>
+                
+                    <mat-label>
+                        Last Name:
+                    </mat-label>
+                        <input matInput name="lname" formControlName="lname" >
+                   </mat-form-field>
+                   
+                    <br />
+                    <div *ngIf ="lname.invalid && (lname.dirty || lname.touched)" class="text-danger">
+                        <div *ngIf="lname.errors.required">
+                            Last Name is required
+                        </div>
+                        <div *ngIf="lname.errors.minlength">
+                            Last Name should contain minimum 4 characters
+                        </div>
+                        <div *ngIf="lname.errors.pattern">
+                            name should consists of only letters
+                        </div>
+                    </div>
+                    <mat-form-field>
+                        
+                        <mat-label>
+                            User Name:
+                        </mat-label>
+                        <input matInput name="uname" formControlName="uname" >
+                    </mat-form-field>
+                    <br />
+                    <div *ngIf ="uname.invalid && (uname.dirty || uname.touched)" class="text-danger">
+                        <div *ngIf="uname.errors.required">
+                            User Name is required
+                        </div>
+                        <div *ngIf="uname.errors.minlength">
+                            User Name should contain minimum 4 characters
+                        </div>
+                        <div *ngIf="uname.errors.pattern">
+                            user name should consists of only letters,numbers,underscores and dashes
+                        </div>
+                    </div>
+
+                    
+                    <mat-form-field>
+                        <mat-label>
+                            Date of Birth:
+                            
+                        </mat-label>
+                        <input matInput type="date" name="DOB" formControlName="dob" >
+                    </mat-form-field>
+                   
+                    <br />
+                    <mat-form-field>
+                    <mat-label>
+                        Country:
+                        
+                    </mat-label>
+                    <input matInput name="country" formControlName="country">
+                    </mat-form-field><br />
+                    <mat-card-actions>
+                        <button type="submit" class="button" [disabled]="!loginForm.valid">Login</button>
+                    </mat-card-actions>
+            
+                  
+                
+                </form>
+                
+            </mat-card-content>
+              
+            </mat-card>
+        </div>
+       
+    </div>
+ 
+    
+</div>
